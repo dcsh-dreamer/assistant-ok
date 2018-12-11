@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>我的日誌</h2>
+<table>
+  <tr>
+    <th>時間</th>
+    <th>項目</th>
+    <th>操作</th>
+  </tr>
+  {% for journal in journal_list %}
+  <tr>
+    <td>{{ journal.created|date:"l" }}{{ journal.created }}</td>
+    <td><a href="{{ journal.id }}/update/">{{ journal.content }}</a></td>
+    <td><a href="{{ journal.id }}/delete/">刪除</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
