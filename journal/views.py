@@ -10,6 +10,7 @@ from django.utils.decorators import method_decorator
 class JournalList(ListView):
     model = Journal
     ordering = ['-id']      # 依 id 欄位反向排序(新的在前面)
+    paginate_by = 3         # 設定每頁最多顯示的資料筆數
 
 # 新增日誌
 @method_decorator(login_required, name='dispatch')
