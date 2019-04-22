@@ -11,6 +11,8 @@
   <div>
     <a href="/journal/">日誌列表</a>
     <a href="/journal/create/">寫日誌</a>
+    <a href="{% url 'expense_list' %}">支出紀錄列表</a>
+    <a href="{% url 'expense_create' %}">新增支出紀錄</a>
     {% if user.is_authenticated %}
       {{ user.username }} <a href="{% url 'logout' %}">登出</a>
     {% else %}

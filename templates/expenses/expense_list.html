@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>我的支出紀錄</h2>
+<table>
+  <tr>
+    <th>時間</th>
+    <th>項目</th>
+    <th>類別</th>
+    <th>金額</th>
+    <th>功能</th>
+  </tr>
+  {% for expense in expense_list %}
+  <tr>
+    <td>({{ expense.time|date:"l" }}) {{ expense.time }}</td>
+    <td><a href="{{ expense.id }}/update/">{{ expense.item }}</a></td>
+    <td>{{ expense.get_category_display }}</td>
+    <td>{{ expense.amount }}</td>
+    <td><a href="{{ expense.id }}/delete/">刪除</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% include 'pagination.html' %}
+{% endblock content %}
